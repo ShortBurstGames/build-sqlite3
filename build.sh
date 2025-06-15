@@ -19,7 +19,6 @@ case $1 in
 	;;
 	x86_64-win32)
 		set -x
-		cl -c $DEFINES sqlite3.c lsqlite3.c
-		lib -out:lib/$1/libsqlite3.lib sqlite3.obj lsqlite3.obj
+		cmd build-windows.bat $1 $DEFINES
 	;;
 esac
