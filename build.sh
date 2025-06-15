@@ -19,6 +19,6 @@ case $1 in
 	;;
 	x86_64-win32)
 		set -x
-		cmd /c build-windows.bat $1 $DEFINES
+		./build-windows.bat $1 $DEFINES
 	;;
 esac
