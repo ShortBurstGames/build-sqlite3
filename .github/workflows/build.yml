@@ -32,6 +32,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           path: ./lib
+          merge-multiple: true
       - name: Package up all architectures
         run: tar czf sqlite3-libs.tar.gz ./lib
       - uses: actions/upload-artifact@v4
