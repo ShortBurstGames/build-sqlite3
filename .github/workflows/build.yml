@@ -1,0 +1,26 @@
+name: Build SQLite3
+on: [push]
+jobs:
+  Build-All:
+    strategy:
+      matrix:
+        arch:
+          - runner: ubuntu-latest
+            target: x86_64-linux
+          - runner: ubuntu-latest
+            target: arm64-linux
+          - runner: macos-latest
+            target: x86_64-osx
+          - runner: macos-latest
+            target: arm64-osx
+          - runner: windows-latest
+            target: x86_64-win32
+    runs-on: ${{ matrix.arch.runner }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build for ${{ matrix.arch.target }}
+        run: ./build.sh ${{ matrix.arch.target }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.arch.target }}
+          path: ./lib
