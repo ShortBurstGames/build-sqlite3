@@ -7,7 +7,7 @@ jobs:
         arch:
           - runner: ubuntu-latest
             target: x86_64-linux
-          - runner: ubuntu-latest
+          - runner: ubuntu-24.04-arm
             target: arm64-linux
           - runner: macos-latest
             target: x86_64-osx
